@@ -1,22 +1,26 @@
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.Scanner;
 import java.util.Locale;
 import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 
 public class Main {
-    //public static final double PI = ;
-    static void area(double r){
-        double area = 0;
-        area = 3.14159 * r * r;
-        DecimalFormat dec = new DecimalFormat("#0.0000");
-        //System.out.println(dec.format(area));
-        System.out.println("A=" + String.format(Locale.US, "%.4f%n", area));
+    public static final double PI = 3.14159d;
+    static void area(String r){
+        BigDecimal PI1 = BigDecimal.valueOf(PI);
+        BigDecimal r1 = new BigDecimal(r);
+        BigDecimal area = r1.multiply(PI1.multiply(r1));
+        DecimalFormat areaf = new DecimalFormat("#.####", new DecimalFormatSymbols(Locale.ENGLISH));
+        areaf.setDecimalSeparatorAlwaysShown(true);
+        areaf.setMinimumFractionDigits(4);
+        System.out.println("A=" + areaf.format(area));
     }    
  
     public static void main(String[] args) throws IOException {
-                double r = 0;
+                String r;
         Scanner input = new Scanner(System.in);
-        r = Float.parseFloat(input.nextLine());
+        r = input.nextLine();
         area(r);        
     } 
 }
