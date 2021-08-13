@@ -21,7 +21,7 @@ public class Main {
     }    
  
     public static void main(String[] args) throws IOException {
-                String r;
+        String r;
         Scanner input = new Scanner(System.in);
         r = input.nextLine();
         area(r);        
